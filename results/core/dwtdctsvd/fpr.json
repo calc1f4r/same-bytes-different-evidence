@@ -1,0 +1,13 @@
+{
+  "family": "dwt_dct_svd",
+  "n": 300,
+  "false_accepts_min_rule": 0,
+  "false_accepts_max_rule": 0,
+  "upper95_fpr_min_rule": 0.00993608194445772,
+  "upper95_fpr_max_rule": 0.00993608194445772,
+  "gate_1pct_min_rule": true,
+  "gate_1pct_max_rule": true,
+  "threshold_min_rule": 0.84375,
+  "threshold_max_rule": 0.984375,
+  "protocol_sha256": "be53cc3a871319f9b1fc3fc438ae70d31a147b38bf9abc5890a45999eb959c2b"
+}

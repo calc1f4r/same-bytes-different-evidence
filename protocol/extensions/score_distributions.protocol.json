@@ -1,0 +1,20 @@
+{
+ "experiment": "E2 score-distribution table",
+ "written_before": "computation",
+ "date": "2026-09-28",
+ "inputs": [
+  "results/riva_gan.jsonl",
+  "results/tree_ring_rand.jsonl",
+  "results/tree_ring_ring.jsonl",
+  "results/dwt_dct_svd.jsonl",
+  "results/riva_gan_fpr_rows.jsonl",
+  "results/tree_ring_rand_fpr_rows.jsonl",
+  "results/tree_ring_ring_fpr_rows.jsonl",
+  "results/dwt_dct_svd_fpr_rows.jsonl",
+  "results/riva_gan_calibration.json",
+  "results/tree_ring_rand_calibration.json",
+  "results/tree_ring_ring_calibration.json",
+  "results/dwt_dct_svd_calibration.json"
+ ],
+ "rule": "descriptive statistics only; no new scores; no thresholds changed"
+}

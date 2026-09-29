@@ -1,0 +1,244 @@
+{
+  "extension": "negatives_extension",
+  "purpose": "This extension doubles the negative population: 300 additional independent unmarked negatives per family at the FROZEN pilot_v3 thresholds (no recalibration).",
+  "date_utc": "2026-09-28T18:37:02Z",
+  "started_utc": "2026-09-28T15:11:03Z",
+  "seed_policy": "derive_seed('pilot_v3_neg', 20281001, j); prompt PROMPTS[j % 64]; SD2.1-base fp16, 25 DDIM steps, guidance 6.0, 256x256 (identical to gen_negatives.py)",
+  "scoring_path": "raw/unmanaged Pillow decode -> run_family.make_family score (wrong=False) -> strict > frozen calibration threshold (identical to run_fpr.py)",
+  "thresholds_source": "results/{family}_calibration.json (cross-checked against {family}_fpr.json); NEVER recalibrated",
+  "clopper_pearson_rule": "one-sided 95% upper: k=0 -> 1-0.05**(1/n); else scipy.stats.beta.ppf(0.95, k+1, n-k) (identical to run_fpr.py)",
+  "families": {
+    "riva_gan": {
+      "index_range_new": [
+        1700,
+        1999
+      ],
+      "n_planned_new": 300,
+      "n_generated": 300,
+      "n_scored_new": 300,
+      "threshold_min_rule_frozen": 0.796875,
+      "threshold_max_rule_frozen": 0.984375,
+      "accepts_min_rule_new": 0,
+      "accepts_max_rule_new": 0,
+      "combined_with_original": {
+        "n_original": 300,
+        "accepts_min_rule_original": 0,
+        "accepts_max_rule_original": 0,
+        "n_total": 600,
+        "accepts_min_rule_total": 0,
+        "accepts_max_rule_total": 0,
+        "upper95_fpr_min_rule_total": 0.004980443380361299,
+        "upper95_fpr_max_rule_total": 0.004980443380361299
+      },
+      "score_distribution_new": {
+        "n": 300,
+        "min": 0.25,
+        "q25": 0.4375,
+        "median": 0.5,
+        "q75": 0.5625,
+        "max": 0.75,
+        "mean": 0.49802083333333336,
+        "std": 0.08842153631659831
+      },
+      "margin_min_rule": 0.046875,
+      "margin_max_rule": 0.234375
+    },
+    "dwt_dct_svd": {
+      "index_range_new": [
+        2000,
+        2299
+      ],
+      "n_planned_new": 300,
+      "n_generated": 300,
+      "n_scored_new": 300,
+      "threshold_min_rule_frozen": 0.84375,
+      "threshold_max_rule_frozen": 0.984375,
+      "accepts_min_rule_new": 0,
+      "accepts_max_rule_new": 0,
+      "combined_with_original": {
+        "n_original": 300,
+        "accepts_min_rule_original": 0,
+        "accepts_max_rule_original": 0,
+        "n_total": 600,
+        "accepts_min_rule_total": 0,
+        "accepts_max_rule_total": 0,
+        "upper95_fpr_min_rule_total": 0.004980443380361299,
+        "upper95_fpr_max_rule_total": 0.004980443380361299
+      },
+      "score_distribution_new": {
+        "n": 300,
+        "min": 0.25,
+        "q25": 0.4375,
+        "median": 0.5,
+        "q75": 0.5625,
+        "max": 0.75,
+        "mean": 0.4972916666666667,
+        "std": 0.08867880307192802
+      },
+      "margin_min_rule": 0.09375,
+      "margin_max_rule": 0.234375
+    },
+    "tree_ring_rand": {
+      "index_range_new": [
+        2300,
+        2599
+      ],
+      "n_planned_new": 300,
+      "n_generated": 300,
+      "n_scored_new": 300,
+      "threshold_min_rule_frozen": -28.6640625,
+      "threshold_max_rule_frozen": -17.5390625,
+      "accepts_min_rule_new": 0,
+      "accepts_max_rule_new": 0,
+      "combined_with_original": {
+        "n_original": 300,
+        "accepts_min_rule_original": 0,
+        "accepts_max_rule_original": 0,
+        "n_total": 600,
+        "accepts_min_rule_total": 0,
+        "accepts_max_rule_total": 0,
+        "upper95_fpr_min_rule_total": 0.004980443380361299,
+        "upper95_fpr_max_rule_total": 0.004980443380361299
+      },
+      "score_distribution_new": {
+        "n": 300,
+        "min": -48.84375,
+        "q25": -40.140625,
+        "median": -38.34375,
+        "q75": -36.3125,
+        "max": -30.28125,
+        "mean": -38.39369791666667,
+        "std": 2.9706476339016428
+      },
+      "margin_min_rule": 1.6171875,
+      "margin_max_rule": 12.7421875
+    },
+    "tree_ring_ring": {
+      "index_range_new": [
+        2600,
+        2899
+      ],
+      "n_planned_new": 300,
+      "n_generated": 300,
+      "n_scored_new": 300,
+      "threshold_min_rule_frozen": -26.546875,
+      "threshold_max_rule_frozen": -22.734375,
+      "accepts_min_rule_new": 1,
+      "accepts_max_rule_new": 0,
+      "combined_with_original": {
+        "n_original": 300,
+        "accepts_min_rule_original": 0,
+        "accepts_max_rule_original": 0,
+        "n_total": 600,
+        "accepts_min_rule_total": 1,
+        "accepts_max_rule_total": 0,
+        "upper95_fpr_min_rule_total": 0.007881816463574881,
+        "upper95_fpr_max_rule_total": 0.004980443380361299
+      },
+      "score_distribution_new": {
+        "n": 300,
+        "min": -57.15625,
+        "q25": -42.3203125,
+        "median": -38.90625,
+        "q75": -35.1953125,
+        "max": -26.484375,
+        "mean": -39.03927083333333,
+        "std": 6.014573510225934
+      },
+      "margin_min_rule": -0.0625,
+      "margin_max_rule": 3.75
+    }
+  },
+  "progress_notes": [
+    "gpu wait x10 before generate riva_gan continuation (free 3524 MiB at start)"
+  ],
+  "batch_log": [
+    {
+      "ts_utc": "2026-09-28T15:36:50Z",
+      "action": "generate",
+      "family": "riva_gan",
+      "n_done": 294,
+      "oom_retries": 0,
+      "seconds": 451.9,
+      "gpu_wait_cycles": 0
+    },
+    {
+      "ts_utc": "2026-09-28T15:44:35Z",
+      "action": "generate",
+      "family": "dwt_dct_svd",
+      "n_done": 300,
+      "oom_retries": 0,
+      "seconds": 641.6,
+      "gpu_wait_cycles": 0
+    },
+    {
+      "ts_utc": "2026-09-28T15:55:27Z",
+      "action": "generate",
+      "family": "tree_ring_rand",
+      "n_done": 300,
+      "oom_retries": 0,
+      "seconds": 603.5,
+      "gpu_wait_cycles": 0
+    },
+    {
+      "ts_utc": "2026-09-28T16:05:50Z",
+      "action": "score",
+      "family": "tree_ring_rand",
+      "n_done": 300,
+      "oom_retries": 0,
+      "seconds": 8082.2,
+      "gpu_wait_cycles": 0
+    },
+    {
+      "ts_utc": "2026-09-28T18:20:52Z",
+      "action": "generate",
+      "family": "tree_ring_ring",
+      "n_done": 300,
+      "oom_retries": 0,
+      "seconds": 559.6,
+      "gpu_wait_cycles": 0
+    },
+    {
+      "ts_utc": "2026-09-28T18:30:21Z",
+      "action": "score",
+      "family": "tree_ring_ring",
+      "n_done": 300,
+      "oom_retries": 0,
+      "seconds": 382.2,
+      "gpu_wait_cycles": 0
+    }
+  ],
+  "runtime_seconds": {
+    "generation_batches_total": 2256.6,
+    "scoring_batches_total": 8464.4,
+    "finalize": 0.83
+  },
+  "versions": {
+    "python": "3.12.3",
+    "torch": "2.6.0+cu124",
+    "cuda_available": true,
+    "diffusers": "0.31.0",
+    "Pillow": "12.3.0",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "opencv": "5.0.0",
+    "onnxruntime": "1.30.0",
+    "transformers": "4.46.3",
+    "gpu": "NVIDIA GeForce RTX 3070 Ti Laptop GPU"
+  },
+  "protocol_sha256": "be53cc3a871319f9b1fc3fc438ae70d31a147b38bf9abc5890a45999eb959c2b",
+  "calibration_sha256": {
+    "riva_gan": "8c78cdc775f2809a28a0182bb04a859aaa82ec62f10a34eee88331dd22dc05df",
+    "dwt_dct_svd": "cc583572a27704d08061217ac1ef841556195f88ff1db60e44590ea98bb78de8",
+    "tree_ring_rand": "4ba3846d5edf8763de0259cc6918de777588d6eeb3057664382ad732eecf12ad",
+    "tree_ring_ring": "0d7468b1de563bbef4bc8f8217741ec56ce59c3a31354a533f92e70cab8e0f46"
+  },
+  "original_fpr_sha256": {
+    "riva_gan": "c1f020c281e7b5f73eee1bce8bd6bc2328d847d2e73315fdce257cbf99c91ee1",
+    "dwt_dct_svd": "8b65fd74dfbd794309f812da024fe489786c5508c24a39eff2fa6d41e8afb10c",
+    "tree_ring_rand": "0325a2e0cd942c02a8e167481293144a086f10ea566feee3e75603af819e63f5",
+    "tree_ring_ring": "726fbd0071fb23f1103567037ec92187027653cce67b8b9cb6f2258417589fc7"
+  },
+  "rows_file": "results/sensitivity/negatives_extension_rows.jsonl",
+  "progress_file": "results/sensitivity/negatives_extension_progress.json"
+}

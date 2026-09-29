@@ -1,0 +1,32 @@
+{
+ "experiment": "E3 loader-survey extension",
+ "written_before": "execution",
+ "date": "2026-09-28",
+ "fixtures": [
+  "riva_gan_206_exif6.jpg",
+  "riva_gan_207_exif6.jpg",
+  "riva_gan_208_exif6.jpg",
+  "riva_gan_209_exif6.jpg",
+  "riva_gan_210_exif6.jpg",
+  "riva_gan_211_exif6.jpg",
+  "tree_ring_rand_218_exif6.jpg",
+  "tree_ring_rand_219_exif6.jpg",
+  "tree_ring_rand_220_exif6.jpg",
+  "tree_ring_rand_221_exif6.jpg",
+  "tree_ring_rand_222_exif6.jpg",
+  "tree_ring_rand_223_exif6.jpg",
+  "tree_ring_ring_230_exif6.jpg",
+  "tree_ring_ring_231_exif6.jpg",
+  "tree_ring_ring_232_exif6.jpg",
+  "tree_ring_ring_233_exif6.jpg",
+  "tree_ring_ring_234_exif6.jpg",
+  "tree_ring_ring_235_exif6.jpg",
+  "dwt_dct_svd_242_exif6.jpg",
+  "dwt_dct_svd_243_exif6.jpg",
+  "dwt_dct_svd_244_exif6.jpg",
+  "dwt_dct_svd_245_exif6.jpg",
+  "dwt_dct_svd_246_exif6.jpg",
+  "dwt_dct_svd_247_exif6.jpg"
+ ],
+ "rule": "read-only decode probes; compare each loader raster hash against the display raster (ImageOps.exif_transpose) and the raw raster (Pillow convert RGB without transpose); no watermark scoring"
+}

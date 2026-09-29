@@ -1,0 +1,7 @@
+{
+ "experiment": "E6 latent ring/rand check reconstruction",
+ "written_before": "execution",
+ "date": "2026-09-28",
+ "rule": "same keyed constructions as run_family.py (derive_seed pilot_v3_key_<kind>, randn fp16 1x4x32x32, circle mask radius 5); l1_complex_metric of the watermark-injected latent after identity/rot90/rot180; no diffusion sampling",
+ "recorded_reference": "FOLLOWUP_EXPERIMENTS.md: ring identity 23.2, rot90 34.6, rot180 30.0; rand identity 0.0, rot90 41.8, rot180 39.7; rot90 self-difference ratio 1.38"
+}

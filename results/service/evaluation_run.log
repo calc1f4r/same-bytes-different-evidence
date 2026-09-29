@@ -1,0 +1,97 @@
+46 raw 0.96875 canonical 0.59375
+47 raw 0.6875 canonical 0.5
+48 raw 1.0 canonical 0.53125
+49 raw 1.0 canonical 0.4375
+50 raw 0.65625 canonical 0.4375
+51 raw 0.84375 canonical 0.375
+{
+  "status": "exploratory live CPU model evaluation; v1 implementation threshold materially deviates from frozen protocol",
+  "threshold_executed_deviation": 0.75,
+  "threshold_literal_frozen_sensitivity": 0.984375,
+  "number_http_rows": 64,
+  "number_ok": 60,
+  "number_rejected": 4,
+  "heldout_indices": [
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "groups": {
+    "exif_original_raw": {
+      "n": 6,
+      "accepted_implemented": 4,
+      "accepted_literal_sensitivity": 2,
+      "mean_score": 0.859375,
+      "mean_service_ms": 271.932821,
+      "median_service_ms": 266.9817685,
+      "mean_client_ms": 278.48284483333333
+    },
+    "exif_canonical_canonical": {
+      "n": 6,
+      "accepted_implemented": 0,
+      "accepted_literal_sensitivity": 0,
+      "mean_score": 0.4791666666666667,
+      "mean_service_ms": 296.9661121666667,
+      "median_service_ms": 293.103659,
+      "mean_client_ms": 300.0676055
+    },
+    "marked_raw": {
+      "n": 6,
+      "accepted_implemented": 4,
+      "accepted_literal_sensitivity": 2,
+      "mean_score": 0.859375,
+      "mean_service_ms": 281.0607796666667,
+      "median_service_ms": 279.2697925,
+      "mean_client_ms": 284.12232366666666
+    },
+    "marked_canonical": {
+      "n": 6,
+      "accepted_implemented": 4,
+      "accepted_literal_sensitivity": 2,
+      "mean_score": 0.859375,
+      "mean_service_ms": 284.7569143333333,
+      "median_service_ms": 284.2645675,
+      "mean_client_ms": 287.55672566666664
+    },
+    "unmarked_raw": {
+      "n": 6,
+      "accepted_implemented": 0,
+      "accepted_literal_sensitivity": 0,
+      "mean_score": 0.4895833333333333,
+      "mean_service_ms": 264.34922033333334,
+      "median_service_ms": 261.563003,
+      "mean_client_ms": 267.2583446666667
+    },
+    "unmarked_canonical": {
+      "n": 6,
+      "accepted_implemented": 0,
+      "accepted_literal_sensitivity": 0,
+      "mean_score": 0.4895833333333333,
+      "mean_service_ms": 286.73785833333335,
+      "median_service_ms": 283.44631449999997,
+      "mean_client_ms": 290.7482265
+    },
+    "wrong_key_raw": {
+      "n": 6,
+      "accepted_implemented": 0,
+      "accepted_literal_sensitivity": 0,
+      "mean_score": 0.4947916666666667,
+      "mean_service_ms": 273.7301815,
+      "median_service_ms": 271.8444485,
+      "mean_client_ms": 276.595564
+    },
+    "wrong_key_canonical": {
+      "n": 6,
+      "accepted_implemented": 0,
+      "accepted_literal_sensitivity": 0,
+      "mean_score": 0.4947916666666667,
+      "mean_service_ms": 290.81389466666667,
+      "median_service_ms": 289.11369349999995,
+      "mean_client_ms": 293.66930766666667
+    }
+  },
+  "encoded_and_raster_idempotence": "6/6 repeated canonical PNGs exact; scores and tensors exact"
+}

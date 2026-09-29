@@ -1,0 +1,201 @@
+{
+ "schema": "env-manifest/1.0",
+ "collected_at": "2026-09-28T15:08:52Z",
+ "purpose": "Machine-readable environment/deep-versions manifest for the reproducibility subsection (implementation-dependent decoding claim; dependency provenance).",
+ "interpreter": {
+  "python": "3.12.3",
+  "venv_python": "<study-tree>/venv/bin/python"
+ },
+ "packages": {
+  "pillow": "12.3.0",
+  "opencv-python": "5.0.0.93",
+  "torch": "2.6.0+cu124",
+  "torchvision": "0.21.0+cu124",
+  "matplotlib": "3.11.2",
+  "imageio": "2.37.4",
+  "numpy": "2.5.2",
+  "onnxruntime": "1.30.0",
+  "scipy": "1.18.1",
+  "fastapi": null,
+  "uvicorn": null,
+  "supporting": {
+   "diffusers": "0.31.0",
+   "transformers": "4.46.3",
+   "safetensors": "0.8.0",
+   "huggingface-hub": "0.26.2",
+   "invisible-watermark": "0.2.0 (pinned in bench/requirements.lock.txt; files present in site-packages as imwatermark/ without dist-info metadata)"
+  }
+ },
+ "jpeg_backend_provenance": {
+  "pillow": {
+   "PIL.__version__": "12.3.0",
+   "features": {
+    "jpg": {
+     "supported": true,
+     "version": "6.2"
+    },
+    "libjpeg_turbo": {
+     "supported": true,
+     "version": "3.1.4.1"
+    },
+    "jpg_2000": {
+     "supported": true,
+     "version": "2.5.4"
+    },
+    "zlib": {
+     "supported": true,
+     "version": "1.3"
+    },
+    "freetype2": {
+     "supported": true,
+     "version": "2.14.3"
+    },
+    "littlecms2": {
+     "supported": true,
+     "version": "2.19"
+    },
+    "webp": {
+     "supported": true,
+     "version": "1.6.0"
+    },
+    "xcb": {
+     "supported": true,
+     "version": null
+    }
+   },
+   "note": "Both feature spellings ('jpg' and 'libjpeg_turbo') are recognized by this Pillow; 'jpg' version 6.2 is the libjpeg ABI report, 'libjpeg_turbo' 3.1.4.1 is the actual TurboJPEG library. Pillow decodes JPEG via libjpeg-turbo 3.1.4.1."
+  },
+  "opencv": {
+   "cv2.__version__": "5.0.0",
+   "pip_version": "5.0.0.93",
+   "build_info_excerpt": {
+    "JPEG": "build-libjpeg-turbo (ver 3.1.2-70)",
+    "PNG": "/usr/local/lib/libpng.so (ver 1.6.58)",
+    "JPEG 2000": "build (ver 2.5.3) [openjp2]",
+    "3rdparty_dependencies": "ittnotify libprotobuf libjpeg-turbo libwebp libtiff libopenjp2 ipphal ippiw ippicv",
+    "parallel_framework": "pthreads",
+    "compiler": "gcc-toolset-14 c++ 14.2.1"
+   },
+   "note": "OpenCV bundles its OWN libjpeg-turbo 3.1.2-70 (static 3rdparty build), distinct from Pillow's 3.1.4.1 \u2014 the two loaders decode JPEG through different library builds."
+  },
+  "imagemagick": {
+   "convert_version": "ImageMagick 6.9.12-98 Q16 x86_64 18038 (legacy.imagemagick.org)",
+   "identify_version": "ImageMagick 6.9.12-98 Q16 x86_64 18038 (legacy.imagemagick.org)",
+   "features": "Cipher DPC Modules OpenMP(4.5)",
+   "delegates": "bzlib djvu fftw fontconfig freetype heic jbig jng jp2 jpeg lcms lqr ltdl lzma openexr pangocairo png raw tiff webp wmf x xml zlib",
+   "delegates_of_interest": {
+    "jpeg": true,
+    "png": true,
+    "lcms": true,
+    "jp2": true,
+    "tiff": true,
+    "webp": true
+   }
+  },
+  "exiftool": {
+   "version": "12.76"
+  }
+ },
+ "host_environment": {
+  "uname": "Linux Yash 5.15.167.4-microsoft-standard-WSL2 #1 SMP Tue Nov 5 00:21:55 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux",
+  "os_pretty_name": "Ubuntu 24.04.3 LTS (Noble Numbat)",
+  "wsl_note": "Running under WSL2 (microsoft-standard-WSL2 kernel 5.15.167.4); GPU access is via WSL2 CUDA passthrough.",
+  "gpu": {
+   "name": "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
+   "memory_total_mib": 8192,
+   "driver": {
+    "nvidia_smi": "610.43.02",
+    "kernel_module_kmd": "610.62",
+    "cuda_umd_version": "13.3"
+   }
+  },
+  "cuda": {
+   "torch_version_cuda": "12.4",
+   "cuda_available": true,
+   "torch_device_name": "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
+   "cudnn_version": "90100 (9.1.0)",
+   "nvcc": "not present on PATH (no local CUDA toolkit; torch uses bundled cu124 runtime)"
+  }
+ },
+ "artifacts": {
+  "rivagan_onnx": {
+   "package": "imwatermark (invisible-watermark 0.2.0) in the study venv site-packages",
+   "decoder": {
+    "path": "<study-tree>/venv/lib/python3.12/site-packages/imwatermark/rivagan_decoder.onnx",
+    "sha256": "6b006690cf352fa50a91a0b6d6241dbcded0a9957969e2c0665cf9a7011b3880",
+    "size_bytes": 1088816
+   },
+   "encoder": {
+    "path": "<study-tree>/venv/lib/python3.12/site-packages/imwatermark/rivagan_encoder.onnx",
+    "sha256": "66bc7814fadac7d686105c8ab26c6cf2cc8e40deb83e67bb6ef5b9de9b8ece0d",
+    "size_bytes": 657164
+   }
+  },
+  "treering_port": {
+   "location": "<study-tree>/bench/src/treering/",
+   "files": {
+    "__init__.py": {
+     "sha256": "747ff24e2854d816c3bc64399c69ffb78170adb36a5d58e69dc311d64922375a",
+     "size_bytes": 1238
+    },
+    "optim_utils.py": {
+     "sha256": "33b30e81054a1ade048c1ae4fbc5ae46ae873b534b3ad6d1748ee4e57eb51a4e",
+     "size_bytes": 6031
+    },
+    "inverse_stable_diffusion.py": {
+     "sha256": "7dcab39da3568f04c73f481f330150c58d332a29ea1ce6d8e2baefeea87c03a6",
+     "size_bytes": 7275
+    },
+    "modified_stable_diffusion.py": {
+     "sha256": "18bd8884d4dc2799718d9313f9e2a75c3adda49063b3e39e2eaf469c04d241d8",
+     "size_bytes": 7746
+    }
+   },
+   "note": "Local port of Tree-Ring (Shilin et al.) used by the tree_ring families; PATCHES.md in the same directory documents local modifications."
+  },
+  "sd21_base": {
+   "hf_repo_id": "WIBE-HuggingFace/stable-diffusion-2-1-base",
+   "hf_repo_note": "WIBE-HuggingFace mirror of stabilityai/stable-diffusion-2-1-base used by the study (per HF cache); snapshot commit 94e48088b3d3d6fee9e0176d12425770aaa4b2c4.",
+   "cache_path": "<home>/.cache/huggingface/hub/models--WIBE-HuggingFace--stable-diffusion-2-1-base",
+   "snapshot_commit": "94e48088b3d3d6fee9e0176d12425770aaa4b2c4",
+   "total_cache_size": "7.3 GB",
+   "pipeline_class": "StableDiffusionPipeline (model_index.json: PNDMScheduler default, CLIPTextModel, UNet2DConditionModel, AutoencoderKL, safety_checker disabled)",
+   "config_sha256": {
+    "model_index.json": "45cb56e4e3940c2c33dba5aa4cefa77c6ab9a28cf2cb86156dfd37d60011c7c0",
+    "unet/config.json": "6787619f414b999c27bb119a8554e38022d35bd946c4c47e1af35e4f648c5d3b",
+    "scheduler/scheduler_config.json": "d38e01c6b084c8db8c16411d955f17974e6c3d83ef6dc9c6b7b576329d6907a9",
+    "vae/config.json": "6b194a1bad5f6ab0431cc254088949b814f75d0c3230483ad8fc6be2cc1495a0",
+    "text_encoder/config.json": "c7dc8dc524db9141943f8bb7c157639bf374992ddea851111dcee8945b23d83f"
+   },
+   "weight_sha256": {
+    "unet/diffusion_pytorch_model.safetensors": "c60b3631cc85148ca0cc524daff7767efb707fd26c40d46cc3cd217dc5252cd0 (3463726498 bytes)",
+    "unet/diffusion_pytorch_model.fp16.safetensors": "f6a94cd99d3860d654a0e817b0a249d1b1048bb8e366e95f84e65c5b2a95fecb (1731904736 bytes)"
+   },
+   "weight_sizes_unhashed": {
+    "vae/model.safetensors_bytes": 1361597018,
+    "vae/model.fp16.safetensors_bytes": 680821096,
+    "text_encoder/diffusion_pytorch_model.safetensors_bytes": 334643276,
+    "text_encoder/diffusion_pytorch_model.fp16.safetensors_bytes": 167335342
+   }
+  }
+ },
+ "rng_seed_policy": {
+  "summary": "All seeds are deterministically derived per-index by derive_seed() (blake2b-8 over labeled, type-tagged parts) in experiments/src/common.py, called with fixed domain labels and the frozen offset 20281001 \u2014 e.g. derive_seed('pilot_v3_gen'|'pilot_v3_neg'|'pilot_v3_key_<kind>', 20281001, idx) in pilot_v3/scripts/run_family.py and gen_negatives.py, with RivaGAN 32-bit payloads from np.random.default_rng(20281001+idx) \u2014 so every image, key, and negative index maps to a frozen, replayable seed.",
+  "derive_seed_implementation": "<study-tree>/bench/src/common.py",
+  "consumer_scripts": [
+   "<study-tree>/phase2_raster_study/pilot_v3/scripts/run_family.py",
+   "<study-tree>/phase2_raster_study/pilot_v3/scripts/gen_negatives.py"
+  ],
+  "frozen_protocol_manifest": "<study-tree>/phase2_raster_study/pilot_v3/manifests/frozen_protocol.json"
+ },
+ "notes": [
+  "fastapi and uvicorn are not installed in the study venv (recorded as null).",
+  "nvcc is not present on PATH; CUDA runtime provenance rests on torch 2.6.0+cu124 (torch.version.cuda=12.4) and the driver stack (KMD 610.62, CUDA UMD 13.3).",
+  "PIL.features.version('jpg') returns the libjpeg ABI string '6.2' (i.e. libjpeg 6b line); the operative Pillow JPEG library is libjpeg-turbo 3.1.4.1 via PIL.features.version('libjpeg_turbo'). Both spellings queried successfully.",
+  "OpenCV's JPEG decoder uses its own statically bundled libjpeg-turbo 3.1.2-70, which differs from Pillow's 3.1.4.1 \u2014 this version skew is itself evidence for the implementation-dependent decoding claim.",
+  "imwatermark has no dist-info metadata in the venv (not listed by pip freeze); version 0.2.0 provenance comes from bench/requirements.lock.txt (invisible-watermark==0.2.0).",
+  "UNet safetensors were hashed (fast, <2 min); VAE and text_encoder weights were not hashed, only size-recorded, to stay within the collection budget.",
+  "sdxl-turbo is also present in the HF cache but is not referenced by pilot_v3; only the SD2.1-base snapshot was fingerprinted.",
+  "nvidia-smi header reports SMI 610.43.02 / KMD 610.62 / CUDA UMD 13.3; --query-gpu driver_version reports 610.62. Both retained verbatim."
+ ]
+}

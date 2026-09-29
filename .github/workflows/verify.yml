@@ -1,0 +1,13 @@
+name: verify-findings
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 experiments/verify_findings.py
+      - run: cd protocol && sha256sum -c frozen_protocol.sha256
+      - run: cd results && sha256sum -c MANIFEST.sha256 --quiet

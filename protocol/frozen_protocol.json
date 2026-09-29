@@ -1,0 +1,73 @@
+{
+  "schema": "pilot-v3-frozen-protocol/1.0",
+  "frozen_utc": "2026-09-27T12:05:00Z",
+  "status": "frozen BEFORE any v3 generation, scoring, or family code execution",
+  "parent": "phase2_raster_study/pilot_v2/manifests/frozen_protocol.json (superseded; forking-path disclosure in post_v2_audit.md)",
+  "purpose": "Confirmatory closure attempt for the Phase-I six-condition oracle: calibrated 1%-FPR thresholds on >=299 independent negatives, four scored consumers, third watermark family, Tree-Ring ring-variant control, ICC/gamma decision-level axis, EXIF axis replication.",
+  "families": {
+    "riva_gan": {
+      "embedding": "imwatermark RivaGAN ONNX (pinned venv), 32 bits, key seeds derive_seed('pilot_v3_key',20281001,idx)",
+      "marked_cal": [200, 201, 202, 203, 204, 205],
+      "marked_eval": [206, 207, 208, 209, 210, 211],
+      "unmarked_cal": [300, 301, 302, 303, 304, 305],
+      "unmarked_fpr": "negative indices 400..699 (300 fresh SD2.1-base generations, seeds derive_seed('pilot_v3_neg',20281001,j), prompts PROMPTS[j mod 64])",
+      "wrong_key_cal": "6 (marked_cal images scored under wrong key)",
+      "wrong_key_eval": "6 (marked_eval images scored under wrong key)"
+    },
+    "tree_ring_rand": {
+      "embedding": "WIBE Tree-Ring, 32x32 latent, radius 5, mask circle, pattern 'rand' (same as v2, replication)",
+      "marked_cal": [212, 213, 214, 215, 216, 217],
+      "marked_eval": [218, 219, 220, 221, 222, 223],
+      "unmarked_cal": [306, 307, 308, 309, 310, 311],
+      "unmarked_fpr": "negative indices 700..999 (300 fresh, disjoint from riva_gan negatives)",
+      "wrong_key_cal": 6,
+      "wrong_key_eval": 6
+    },
+    "tree_ring_ring": {
+      "embedding": "WIBE Tree-Ring, pattern 'ring' (radius 5, 32x32 latent) — NEW control variant, tests whether ring variant survives rotation",
+      "marked_cal": [224, 225, 226, 227, 228, 229],
+      "marked_eval": [230, 231, 232, 233, 234, 235],
+      "unmarked_cal": [312, 313, 314, 315, 316, 317],
+      "unmarked_fpr": "negative indices 1000..1299 (300 fresh)",
+      "wrong_key_cal": 6,
+      "wrong_key_eval": 6
+    },
+    "dwt_dct_svd": {
+      "embedding": "imwatermark dwtDctSvd (32 bits) — third family, classical",
+      "marked_cal": [236, 237, 238, 239, 240, 241],
+      "marked_eval": [242, 243, 244, 245, 246, 247],
+      "unmarked_cal": [318, 319, 320, 321, 322, 323],
+      "unmarked_fpr": "negative indices 1300..1599 (300 fresh)",
+      "wrong_key_cal": 6,
+      "wrong_key_eval": 6
+    }
+  },
+  "carriers": {
+    "marked": "fresh SD2.1-base 256x256 generations seeded derive_seed('pilot_v3_gen',20281001,idx) with prompt PROMPTS[idx mod 64]; RivaGAN/dwtDctSvd marked = clean carriers watermarked post-hoc; Tree-Ring marked = generator-native (latents injected)",
+    "unmarked": "fresh SD2.1-base generations from the SAME generator pipeline but WITHOUT watermark injection (RivaGAN/dwt families) or latent injection (Tree-Ring); never previously scored in any pilot"
+  },
+  "independence": "All v3 lineages (200..247 marked, 300..323 cal-negatives, 400..1599 FPR negatives) are disjoint from every v1/v2 index and from each other. v1 used 32..63; v2 used 0..63 carriers and 6..17 negatives; color_axis used 46..48.",
+  "threshold_rule": "Primary: minimum eligible adjacent-unique-score midpoint with zero empirical calibration-FPR, strict >, fitted on the 6 marked_cal + 6 unmarked_cal + 6 wrong_key_cal scores ONLY. PREDECLARED SENSITIVITY: also persist maximum eligible midpoint threshold and BOTH min-rule and max-rule decisions for every eval/FPR row, so the forking-path disclosed in post_v2_audit.md cannot recur silently. If no eligible midpoint exists persist null and mark family uncalibrated. This rule is an empirical zero-FP operating point, not a validated 1% FPR.",
+  "fpr_calibration": "Score all 300 independent unmarked FPR negatives per family at the fitted primary threshold. 1%-FPR gate: upper one-sided exact 95% binomial bound on FPR must be <= 1.5% (with 0 false accepts in 300, the bound is 0.9967% <= 1.5% PASS; any false accept >= 1 makes the bound >= 1.21% and fails unless <= 2 accepts total... see gate field). Also record raw empirical FPR.",
+  "fpr_gate": "PASS iff false_accepts == 0 in 300 (95% upper bound 0.9967% < 1%). Any false accept -> FAIL, report the count; do not shift threshold post hoc.",
+  "consumers": {
+    "scored": [
+      "harness pillow_raw (Image.open().convert('RGB') — EXIF-ignoring; harness-chosen policy, disclosed)",
+      "harness pillow_exif_transpose (display policy)",
+      "opencv_default (cv2.imread IMREAD_COLOR — EXIF-honouring)",
+      "imagemagick_default (identify/convert to PNG via subprocess, then decoded) — fourth scored consumer"
+    ],
+    "browser": "pinned Chromium 151.0.7922.34 canvas + UI <img> element screenshot for EXIF and ICC fixtures (evidence consumer, not scored)"
+  },
+  "axes": {
+    "exif": "orientation=6 JPEG quality 95 4:4:4, same-byte verifier/display split, baked-visible and ordinary-JPEG controls, SSIM >= 0.90 admission (preregistered), identity rows",
+    "icc_gamma": "NEW decision-level axis: for each marked_eval image per family, produce (a) plain PNG, (b) iCCP A98 RGB PNG, (c) gAMA 0.8 PNG, (d) baked-ICC control. Score (a)-(d) under pillow_raw and pillow_managed (ImageCms) consumers. Consumer decision differential = same file bytes, different consumer decision. This is the non-alpha ICC/gamma route attempt."
+  },
+  "admission": "SSIM(display, rotated_source) >= 0.90 for EXIF rows; ICC/gamma rows admitted iff SSIM(decoded_metadata, plain) >= 0.90 under the managed consumer.",
+  "repeat": "Fresh model-load exact score/tensor repeat for >= 1 eval event per family; output persisted to results/repeat_scores.log.",
+  "evaluation": "Primary events per family: (1) identity accept 6/6; (2) EXIF same-byte raw-accept AND display-reject on >= 1 of 6 eval EXIF rows; (3) 0 false accepts on 300 FPR negatives; (4) 0 wrong-key eval accepts; (5) ICC/gamma consumer-decision differential on >= 1 row; (6) all four scored consumers recorded for every scored row. Across-family EXIF claim requires primary events (1),(2),(3) in both post-hoc families or in tree_ring_ring if the rand result is variant-limited.",
+  "six_condition_oracle_mapping": "same-byte=C2 EXIF/ICC rows; decision-differential=C2/C5; calibrated FPR=C3 (300-neg gate); four consumers=C4; third family=dwt_dct_svd inclusion; deployed=NOT in v3 (loopback only remains).",
+  "budget": "GPU wall-clock cap 5400 s total; CPU families (RivaGAN/dwtDctSvd embedding) negligible. Tree-Ring families: ~2 s/gen marked, ~6-8 s/negative inversion+score — 4 families x (12 marked + 300 neg) tree-ring loads ~75 min for two tree-ring families combined; acceptable under cap.",
+  "deviations": "Any deviation from this protocol must be recorded in pilot_v3/DEVIATIONS.md BEFORE continuing execution, with the reason and the affected rows.",
+  "attestation": "This file is frozen by writing it once, hashing it (sha256 recorded in results/verification.json before any eval score), and refusing overwrite in all v3 scripts. Local mtime attestation only; no external registration exists."
+}

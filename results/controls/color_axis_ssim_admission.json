@@ -1,0 +1,154 @@
+{
+ "riva_gan": [
+  {
+   "idx": 206,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.8216,
+   "admitted": false
+  },
+  {
+   "idx": 207,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.8984,
+   "admitted": false
+  },
+  {
+   "idx": 208,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9013,
+   "admitted": true
+  },
+  {
+   "idx": 209,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.889,
+   "admitted": false
+  },
+  {
+   "idx": 210,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9229,
+   "admitted": true
+  },
+  {
+   "idx": 211,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9789,
+   "admitted": true
+  }
+ ],
+ "tree_ring_rand": [
+  {
+   "idx": 218,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9506,
+   "admitted": true
+  },
+  {
+   "idx": 219,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.8905,
+   "admitted": false
+  },
+  {
+   "idx": 220,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9347,
+   "admitted": true
+  },
+  {
+   "idx": 221,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9842,
+   "admitted": true
+  },
+  {
+   "idx": 222,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.8423,
+   "admitted": false
+  },
+  {
+   "idx": 223,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9224,
+   "admitted": true
+  }
+ ],
+ "tree_ring_ring": [
+  {
+   "idx": 230,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9664,
+   "admitted": true
+  },
+  {
+   "idx": 231,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9156,
+   "admitted": true
+  },
+  {
+   "idx": 232,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9969,
+   "admitted": true
+  },
+  {
+   "idx": 233,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.7768,
+   "admitted": false
+  },
+  {
+   "idx": 234,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9742,
+   "admitted": true
+  },
+  {
+   "idx": 235,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9908,
+   "admitted": true
+  }
+ ],
+ "dwt_dct_svd": [
+  {
+   "idx": 242,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9734,
+   "admitted": true
+  },
+  {
+   "idx": 243,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9483,
+   "admitted": true
+  },
+  {
+   "idx": 244,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.9754,
+   "admitted": true
+  },
+  {
+   "idx": 245,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.8806,
+   "admitted": false
+  },
+  {
+   "idx": 246,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.8998,
+   "admitted": false
+  },
+  {
+   "idx": 247,
+   "axis": "icc_a98",
+   "ssim_managed_vs_plain": 0.823,
+   "admitted": false
+  }
+ ]
+}

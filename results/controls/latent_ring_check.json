@@ -1,0 +1,23 @@
+{
+ "generated": "2026-09-28",
+ "e6": {
+  "ring": {
+   "marked_latent_distances": {
+    "identity": 14.89,
+    "rot90": 23.53,
+    "rot180": 24.78
+   },
+   "rot90_selfdiff_ratio": 1.388
+  },
+  "rand": {
+   "marked_latent_distances": {
+    "identity": 0.03,
+    "rot90": 38.56,
+    "rot180": 37.38
+   },
+   "rot90_selfdiff_ratio": null
+  }
+ },
+ "recorded_reference": "FOLLOWUP_EXPERIMENTS.md follow-up 1 (prose)",
+ "note": "independent reconstruction; reproduces the recorded ordering (rand identity at noise floor, ring rotation damage below rand) but not the exact magnitudes, which depend on the seeded latent used by the original unpersisted computation"
+}

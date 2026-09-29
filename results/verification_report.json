@@ -1,0 +1,437 @@
+{
+ "generated": "2026-09-29",
+ "checks": [
+  {
+   "finding": "riva_gan same-byte split 5/6",
+   "verdict": "PASS",
+   "detail": "5"
+  },
+  {
+   "finding": "riva_gan EXIF pairs share one file hash",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "riva_gan FPR 0/300",
+   "verdict": "PASS",
+   "detail": "0"
+  },
+  {
+   "finding": "riva_gan display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "6"
+  },
+  {
+   "finding": "tree_ring_rand same-byte split 6/6",
+   "verdict": "PASS",
+   "detail": "6"
+  },
+  {
+   "finding": "tree_ring_rand EXIF pairs share one file hash",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "tree_ring_rand FPR 0/300",
+   "verdict": "PASS",
+   "detail": "0"
+  },
+  {
+   "finding": "tree_ring_rand display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "6"
+  },
+  {
+   "finding": "tree_ring_ring same-byte split 4/6",
+   "verdict": "PASS",
+   "detail": "4"
+  },
+  {
+   "finding": "tree_ring_ring EXIF pairs share one file hash",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "tree_ring_ring FPR 0/300",
+   "verdict": "PASS",
+   "detail": "0"
+  },
+  {
+   "finding": "tree_ring_ring display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "6"
+  },
+  {
+   "finding": "dwt_dct_svd same-byte split 6/6",
+   "verdict": "PASS",
+   "detail": "6"
+  },
+  {
+   "finding": "dwt_dct_svd EXIF pairs share one file hash",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "dwt_dct_svd FPR 0/300",
+   "verdict": "PASS",
+   "detail": "0"
+  },
+  {
+   "finding": "dwt_dct_svd display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "6"
+  },
+  {
+   "finding": "raw==magick 24/24",
+   "verdict": "PASS",
+   "detail": "24"
+  },
+  {
+   "finding": "display==opencv 24/24",
+   "verdict": "PASS",
+   "detail": "24"
+  },
+  {
+   "finding": "riva_gan extension 0/300 (combined 0/600)",
+   "verdict": "PASS",
+   "detail": "0/300"
+  },
+  {
+   "finding": "tree_ring_rand extension 0/300 (combined 0/600)",
+   "verdict": "PASS",
+   "detail": "0/300"
+  },
+  {
+   "finding": "tree_ring_ring extension 1/300 (combined 1/600)",
+   "verdict": "PASS",
+   "detail": "1/300"
+  },
+  {
+   "finding": "dwt_dct_svd extension 0/300 (combined 0/600)",
+   "verdict": "PASS",
+   "detail": "0/300"
+  },
+  {
+   "finding": "max-rule extension accepts 0",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "ring accept is idx 2609 at -26.484375",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "breadth riva orient 2: 26/30 split",
+   "verdict": "PASS",
+   "detail": "26/30"
+  },
+  {
+   "finding": "breadth riva orient 3: 26/30 split",
+   "verdict": "PASS",
+   "detail": "26/30"
+  },
+  {
+   "finding": "breadth riva orient 4: 26/30 split",
+   "verdict": "PASS",
+   "detail": "26/30"
+  },
+  {
+   "finding": "breadth riva orient 5: 26/30 split",
+   "verdict": "PASS",
+   "detail": "26/30"
+  },
+  {
+   "finding": "breadth riva orient 6: 26/30 split",
+   "verdict": "PASS",
+   "detail": "26/30"
+  },
+  {
+   "finding": "breadth riva orient 7: 26/30 split",
+   "verdict": "PASS",
+   "detail": "26/30"
+  },
+  {
+   "finding": "breadth riva orient 8: 26/30 split",
+   "verdict": "PASS",
+   "detail": "26/30"
+  },
+  {
+   "finding": "breadth dwt orient 2: 30/30 split",
+   "verdict": "PASS",
+   "detail": "30/30"
+  },
+  {
+   "finding": "breadth dwt orient 3: 30/30 split",
+   "verdict": "PASS",
+   "detail": "30/30"
+  },
+  {
+   "finding": "breadth dwt orient 4 (vertical flip): 0/30 split, 30/30 both-accept",
+   "verdict": "PASS",
+   "detail": "split 0, both 30/30"
+  },
+  {
+   "finding": "breadth dwt orient 5: 30/30 split",
+   "verdict": "PASS",
+   "detail": "30/30"
+  },
+  {
+   "finding": "breadth dwt orient 6: 30/30 split",
+   "verdict": "PASS",
+   "detail": "30/30"
+  },
+  {
+   "finding": "breadth dwt orient 7: 30/30 split",
+   "verdict": "PASS",
+   "detail": "30/30"
+  },
+  {
+   "finding": "breadth dwt orient 8: 30/30 split",
+   "verdict": "PASS",
+   "detail": "30/30"
+  },
+  {
+   "finding": "normalization riva_gan: 5/5 raw-accepters flip to reject",
+   "verdict": "PASS",
+   "detail": "5/5"
+  },
+  {
+   "finding": "normalization tree_ring_rand: 6/6 raw-accepters flip to reject",
+   "verdict": "PASS",
+   "detail": "6/6"
+  },
+  {
+   "finding": "normalization tree_ring_ring: 4/4 raw-accepters flip to reject",
+   "verdict": "PASS",
+   "detail": "4/4"
+  },
+  {
+   "finding": "normalization dwt_dct_svd: 6/6 raw-accepters flip to reject",
+   "verdict": "PASS",
+   "detail": "6/6"
+  },
+  {
+   "finding": "normalization total 21/21 flips to reject",
+   "verdict": "PASS",
+   "detail": "21"
+  },
+  {
+   "finding": "sweep riva_gan: 3 eligible midpoints (pinned), FPR 0/300, raw-accept and display-reject >= 1 each",
+   "verdict": "PASS",
+   "detail": "eligible 3"
+  },
+  {
+   "finding": "sweep tree_ring_rand: 6 eligible midpoints (pinned), FPR 0/300, raw-accept and display-reject >= 1 each",
+   "verdict": "PASS",
+   "detail": "eligible 6"
+  },
+  {
+   "finding": "sweep tree_ring_ring: 4 eligible midpoints (pinned), FPR 0/300, raw-accept and display-reject >= 1 each",
+   "verdict": "PASS",
+   "detail": "eligible 4"
+  },
+  {
+   "finding": "sweep dwt_dct_svd: 2 eligible midpoints (pinned), FPR 0/300, raw-accept and display-reject >= 1 each",
+   "verdict": "PASS",
+   "detail": "eligible 2"
+  },
+  {
+   "finding": "quality riva_gan q60 split 4/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "4"
+  },
+  {
+   "finding": "quality riva_gan q75 split 4/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "4"
+  },
+  {
+   "finding": "quality riva_gan q85 split 5/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "5"
+  },
+  {
+   "finding": "quality tree_ring_rand q60 split 5/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "5"
+  },
+  {
+   "finding": "quality tree_ring_rand q75 split 6/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "6"
+  },
+  {
+   "finding": "quality tree_ring_rand q85 split 6/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "6"
+  },
+  {
+   "finding": "quality tree_ring_ring q60 split 2/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "2"
+  },
+  {
+   "finding": "quality tree_ring_ring q75 split 3/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "3"
+  },
+  {
+   "finding": "quality tree_ring_ring q85 split 3/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "3"
+  },
+  {
+   "finding": "quality dwt_dct_svd q60 split 5/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "5"
+  },
+  {
+   "finding": "quality dwt_dct_svd q75 split 5/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "5"
+  },
+  {
+   "finding": "quality dwt_dct_svd q85 split 6/6, display rejects 6/6",
+   "verdict": "PASS",
+   "detail": "6"
+  },
+  {
+   "finding": "wrong-message riva_gan 0/36",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "wrong-message dwt_dct_svd 0/36",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "cross-key tree_ring_rand 0/6",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "cross-key tree_ring_ring 0/6",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "firefox 24/24 canvas + screenshot equal scored, MAE 0",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "chromium_control 24/24 canvas + screenshot equal scored, MAE 0",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "loader display_exif_transpose: 24/24 one-side match (counted from rows)",
+   "verdict": "PASS",
+   "detail": "display 24, raw 0"
+  },
+  {
+   "finding": "loader raw_pillow: 24/24 one-side match (counted from rows)",
+   "verdict": "PASS",
+   "detail": "display 0, raw 24"
+  },
+  {
+   "finding": "loader opencv_default: 24/24 one-side match (counted from rows)",
+   "verdict": "PASS",
+   "detail": "display 24, raw 0"
+  },
+  {
+   "finding": "loader opencv_ignore_orientation: 24/24 one-side match (counted from rows)",
+   "verdict": "PASS",
+   "detail": "display 0, raw 24"
+  },
+  {
+   "finding": "loader torchvision_decode_image: 24/24 one-side match (counted from rows)",
+   "verdict": "PASS",
+   "detail": "display 0, raw 24"
+  },
+  {
+   "finding": "loader torchvision_pil_loader: 24/24 one-side match (counted from rows)",
+   "verdict": "PASS",
+   "detail": "display 0, raw 24"
+  },
+  {
+   "finding": "loader matplotlib_imread: 24/24 one-side match (counted from rows)",
+   "verdict": "PASS",
+   "detail": "display 0, raw 24"
+  },
+  {
+   "finding": "loader pillow_exif_transpose_after_getexif: 24/24 one-side match (counted from rows)",
+   "verdict": "PASS",
+   "detail": "display 24, raw 0"
+  },
+  {
+   "finding": "loader imageio_imread: 24/24 one-side match (counted from rows)",
+   "verdict": "PASS",
+   "detail": "display 0, raw 24"
+  },
+  {
+   "finding": "loader tf_io unclassified (skip string recorded on all 24 rows, TensorFlow absent)",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "loader honouring set matches expected consumers",
+   "verdict": "PASS",
+   "detail": "['display_exif_transpose', 'opencv_default', 'pillow_exif_transpose_after_getexif']"
+  },
+  {
+   "finding": "repository survey (counted from repo records): 8 inspected, 6 ignoring, 1 honouring, 1 n/a",
+   "verdict": "PASS",
+   "detail": "ignoring 6, honouring 1, n/a 1"
+  },
+  {
+   "finding": "baked-ICC equals managed 24/24",
+   "verdict": "PASS",
+   "detail": "24/24"
+  },
+  {
+   "finding": "ICC admission 15/24 row-wise",
+   "verdict": "PASS",
+   "detail": "15"
+  },
+  {
+   "finding": "per-family minimum SSIM within 0.777-0.842",
+   "verdict": "PASS",
+   "detail": "family minima [0.8216, 0.8423, 0.7768, 0.823]"
+  },
+  {
+   "finding": "latent ring identity < rot90/rot180; rand identity at noise floor",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "latent check artifact records rot90 self-difference ratio 1.388",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "service run summary states idempotence 6/6",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "service run summary states latency ~260-300 ms",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "service run summary states raw 4/6 at 0.75",
+   "verdict": "PASS",
+   "detail": ""
+  },
+  {
+   "finding": "service http rows: 60 ok; 4 rejected rows are contract-rejection tests with documented errors",
+   "verdict": "PASS",
+   "detail": "ok 60, rejected 4"
+  }
+ ],
+ "pass": 86,
+ "fail": 0
+}

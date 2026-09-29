@@ -1,0 +1,7 @@
+{
+ "experiment": "E5 fifth-consumer display-policy re-score",
+ "written_before": "execution",
+ "date": "2026-09-28",
+ "consumer": "PIL ImageOps.exif_transpose(im).convert('RGB'); no autocontrast, no enhancement",
+ "rule": "re-score all 24 exif6 eval JPEGs; compare score and detector-input hash to stored exif_display rows; expect exact equality; no threshold changes"
+}

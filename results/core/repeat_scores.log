@@ -1,0 +1,10 @@
+# v3 repeat executed 2026-09-27 (post-eval, fresh model loads)
+riva_gan 206 exif_verifier_raw score=0.84375 tensor=9d989222664b1235 PASS
+riva_gan 206 exif_display score=0.5625 tensor=756e05c4eeaade7b PASS
+tree_ring_rand 218 exif_verifier_raw score=-24.96875 tensor=2ce0834923d9909e PASS
+tree_ring_rand 218 exif_display score=-35.375 tensor=c9af8024dc42db49 PASS
+tree_ring_ring 230 exif_verifier_raw score=-22.53125 tensor=6bd793382ceeece2 PASS
+tree_ring_ring 230 exif_display score=-30.390625 tensor=89d27ed117fc5ef6 PASS
+dwt_dct_svd 242 exif_verifier_raw score=1.0 tensor=e770a6210e3d9c29 PASS
+dwt_dct_svd 242 exif_display score=0.5625 tensor=e441f6e29fb0179f PASS
+exit=0

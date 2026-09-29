@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use these experiments or artifacts, please cite them as below."
+title: "Decoder-Policy Watermark Experiments: artifact release"
+authors:
+  - family-names: Srivastava
+    given-names: Yash
+  - family-names: Singh
+    given-names: Amardeep
+  - family-names: Singh
+    given-names: Monika
+year: 2026
+version: 1.0.0
+date-released: "2026-09-29"
+repository-code: "https://github.com/calc1f4r/decoder-policy-watermark-experiments"
+keywords:
+  - watermarking
+  - EXIF orientation
+  - decoder policy
+  - diffusion models
+  - false-positive calibration

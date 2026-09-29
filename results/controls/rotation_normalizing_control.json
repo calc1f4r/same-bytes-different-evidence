@@ -1,0 +1,202 @@
+{
+ "riva_gan": {
+  "threshold": 0.796875,
+  "rows": [
+   {
+    "idx": 206,
+    "raw_score": 0.84375,
+    "raw_accept": true,
+    "normalized_score": 0.5625,
+    "normalized_accept": false
+   },
+   {
+    "idx": 207,
+    "raw_score": 0.96875,
+    "raw_accept": true,
+    "normalized_score": 0.5,
+    "normalized_accept": false
+   },
+   {
+    "idx": 208,
+    "raw_score": 0.84375,
+    "raw_accept": true,
+    "normalized_score": 0.40625,
+    "normalized_accept": false
+   },
+   {
+    "idx": 209,
+    "raw_score": 0.71875,
+    "raw_accept": false,
+    "normalized_score": 0.4375,
+    "normalized_accept": false
+   },
+   {
+    "idx": 210,
+    "raw_score": 1.0,
+    "raw_accept": true,
+    "normalized_score": 0.59375,
+    "normalized_accept": false
+   },
+   {
+    "idx": 211,
+    "raw_score": 1.0,
+    "raw_accept": true,
+    "normalized_score": 0.4375,
+    "normalized_accept": false
+   }
+  ],
+  "raw_accept_normalized_reject": 5,
+  "both_accept": 0,
+  "both_reject": 1
+ },
+ "dwt_dct_svd": {
+  "threshold": 0.84375,
+  "rows": [
+   {
+    "idx": 242,
+    "raw_score": 1.0,
+    "raw_accept": true,
+    "normalized_score": 0.5625,
+    "normalized_accept": false
+   },
+   {
+    "idx": 243,
+    "raw_score": 1.0,
+    "raw_accept": true,
+    "normalized_score": 0.4375,
+    "normalized_accept": false
+   },
+   {
+    "idx": 244,
+    "raw_score": 1.0,
+    "raw_accept": true,
+    "normalized_score": 0.625,
+    "normalized_accept": false
+   },
+   {
+    "idx": 245,
+    "raw_score": 0.875,
+    "raw_accept": true,
+    "normalized_score": 0.46875,
+    "normalized_accept": false
+   },
+   {
+    "idx": 246,
+    "raw_score": 1.0,
+    "raw_accept": true,
+    "normalized_score": 0.65625,
+    "normalized_accept": false
+   },
+   {
+    "idx": 247,
+    "raw_score": 1.0,
+    "raw_accept": true,
+    "normalized_score": 0.4375,
+    "normalized_accept": false
+   }
+  ],
+  "raw_accept_normalized_reject": 6,
+  "both_accept": 0,
+  "both_reject": 0
+ },
+ "tree_ring_rand": {
+  "threshold": -28.6640625,
+  "rows": [
+   {
+    "idx": 218,
+    "raw_score": -24.96875,
+    "raw_accept": true,
+    "normalized_score": -35.375,
+    "normalized_accept": false
+   },
+   {
+    "idx": 219,
+    "raw_score": -19.359375,
+    "raw_accept": true,
+    "normalized_score": -36.75,
+    "normalized_accept": false
+   },
+   {
+    "idx": 220,
+    "raw_score": -21.046875,
+    "raw_accept": true,
+    "normalized_score": -36.09375,
+    "normalized_accept": false
+   },
+   {
+    "idx": 221,
+    "raw_score": -21.75,
+    "raw_accept": true,
+    "normalized_score": -37.90625,
+    "normalized_accept": false
+   },
+   {
+    "idx": 222,
+    "raw_score": -15.78125,
+    "raw_accept": true,
+    "normalized_score": -37.1875,
+    "normalized_accept": false
+   },
+   {
+    "idx": 223,
+    "raw_score": -17.578125,
+    "raw_accept": true,
+    "normalized_score": -31.359375,
+    "normalized_accept": false
+   }
+  ],
+  "raw_accept_normalized_reject": 6,
+  "both_accept": 0,
+  "both_reject": 0
+ },
+ "tree_ring_ring": {
+  "threshold": -26.546875,
+  "rows": [
+   {
+    "idx": 230,
+    "raw_score": -22.53125,
+    "raw_accept": true,
+    "normalized_score": -30.390625,
+    "normalized_accept": false
+   },
+   {
+    "idx": 231,
+    "raw_score": -17.90625,
+    "raw_accept": true,
+    "normalized_score": -28.5,
+    "normalized_accept": false
+   },
+   {
+    "idx": 232,
+    "raw_score": -29.515625,
+    "raw_accept": false,
+    "normalized_score": -40.90625,
+    "normalized_accept": false
+   },
+   {
+    "idx": 233,
+    "raw_score": -27.265625,
+    "raw_accept": false,
+    "normalized_score": -41.1875,
+    "normalized_accept": false
+   },
+   {
+    "idx": 234,
+    "raw_score": -25.296875,
+    "raw_accept": true,
+    "normalized_score": -32.5,
+    "normalized_accept": false
+   },
+   {
+    "idx": 235,
+    "raw_score": -23.859375,
+    "raw_accept": true,
+    "normalized_score": -30.953125,
+    "normalized_accept": false
+   }
+  ],
+  "raw_accept_normalized_reject": 4,
+  "both_accept": 0,
+  "both_reject": 2
+ }
+}

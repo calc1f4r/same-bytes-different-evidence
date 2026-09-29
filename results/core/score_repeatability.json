@@ -1,0 +1,312 @@
+{
+  "protocol_sha256": "be53cc3a871319f9b1fc3fc438ae70d31a147b38bf9abc5890a45999eb959c2b",
+  "families": {
+    "riva_gan": {
+      "cal_threshold_min": 0.796875,
+      "cal_threshold_max": 0.984375,
+      "cal_tpr": 1.0,
+      "cal_fpr": 0.0,
+      "identity_accepts": 5,
+      "exif_raw_accepts": 5,
+      "exif_display_rejects": 6,
+      "exif_opencv_decisions": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "exif_magick_decisions": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "exif_raw_accepts_max_rule": 2,
+      "baked_rejects": 6,
+      "ordinary_accepts": 5,
+      "wrong_key_eval_accepts": 0,
+      "ssim_all_admitted": true,
+      "color_axis_rows": {
+        "color_plain_pillow_raw": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": 1.0
+        },
+        "color_plain_pillow_managed": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": 1.0
+        },
+        "color_icc_a98_pillow_raw": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": 1.0
+        },
+        "color_icc_a98_pillow_managed": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": 1.0
+        },
+        "color_gamma08_pillow_raw": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": 1.0
+        },
+        "color_gamma08_pillow_managed": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": 1.0
+        }
+      },
+      "same_byte_per_pair": true,
+      "fpr": {
+        "n": 300,
+        "false_accepts_min_rule": 0,
+        "upper95_fpr_min_rule": 0.00993608194445772,
+        "gate_1pct_min_rule": true,
+        "false_accepts_max_rule": 0
+      },
+      "icc_gamma_consumer_decision_differentials": [
+        {
+          "axis": "icc_a98",
+          "raw": true,
+          "managed": false,
+          "score_raw": 0.84375,
+          "score_managed": 0.6875
+        }
+      ]
+    },
+    "tree_ring_rand": {
+      "cal_threshold_min": -28.6640625,
+      "cal_threshold_max": -17.5390625,
+      "cal_tpr": 1.0,
+      "cal_fpr": 0.0,
+      "identity_accepts": 6,
+      "exif_raw_accepts": 6,
+      "exif_display_rejects": 6,
+      "exif_opencv_decisions": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "exif_magick_decisions": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "exif_raw_accepts_max_rule": 1,
+      "baked_rejects": 6,
+      "ordinary_accepts": 6,
+      "wrong_key_eval_accepts": 0,
+      "ssim_all_admitted": true,
+      "color_axis_rows": {
+        "color_plain_pillow_raw": {
+          "decision_min": true,
+          "decision_max": false,
+          "score": -17.890625
+        },
+        "color_plain_pillow_managed": {
+          "decision_min": true,
+          "decision_max": false,
+          "score": -17.890625
+        },
+        "color_icc_a98_pillow_raw": {
+          "decision_min": true,
+          "decision_max": false,
+          "score": -17.890625
+        },
+        "color_icc_a98_pillow_managed": {
+          "decision_min": true,
+          "decision_max": false,
+          "score": -18.609375
+        },
+        "color_gamma08_pillow_raw": {
+          "decision_min": true,
+          "decision_max": false,
+          "score": -17.890625
+        },
+        "color_gamma08_pillow_managed": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": -17.328125
+        }
+      },
+      "same_byte_per_pair": true,
+      "fpr": {
+        "n": 300,
+        "false_accepts_min_rule": 0,
+        "upper95_fpr_min_rule": 0.00993608194445772,
+        "gate_1pct_min_rule": true,
+        "false_accepts_max_rule": 0
+      },
+      "icc_gamma_consumer_decision_differentials": []
+    },
+    "tree_ring_ring": {
+      "cal_threshold_min": -26.546875,
+      "cal_threshold_max": -22.734375,
+      "cal_tpr": 0.6666666666666666,
+      "cal_fpr": 0.0,
+      "identity_accepts": 5,
+      "exif_raw_accepts": 4,
+      "exif_display_rejects": 6,
+      "exif_opencv_decisions": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "exif_magick_decisions": [
+        true,
+        true,
+        false,
+        false,
+        true,
+        true
+      ],
+      "exif_raw_accepts_max_rule": 2,
+      "baked_rejects": 6,
+      "ordinary_accepts": 4,
+      "wrong_key_eval_accepts": 0,
+      "ssim_all_admitted": true,
+      "color_axis_rows": {
+        "color_plain_pillow_raw": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": -21.078125
+        },
+        "color_plain_pillow_managed": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": -21.078125
+        },
+        "color_icc_a98_pillow_raw": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": -21.078125
+        },
+        "color_icc_a98_pillow_managed": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": -21.984375
+        },
+        "color_gamma08_pillow_raw": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": -21.078125
+        },
+        "color_gamma08_pillow_managed": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": -20.796875
+        }
+      },
+      "same_byte_per_pair": true,
+      "fpr": {
+        "n": 300,
+        "false_accepts_min_rule": 0,
+        "upper95_fpr_min_rule": 0.00993608194445772,
+        "gate_1pct_min_rule": true,
+        "false_accepts_max_rule": 0
+      },
+      "icc_gamma_consumer_decision_differentials": []
+    },
+    "dwt_dct_svd": {
+      "cal_threshold_min": 0.84375,
+      "cal_threshold_max": 0.984375,
+      "cal_tpr": 1.0,
+      "cal_fpr": 0.0,
+      "identity_accepts": 6,
+      "exif_raw_accepts": 6,
+      "exif_display_rejects": 6,
+      "exif_opencv_decisions": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "exif_magick_decisions": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "exif_raw_accepts_max_rule": 5,
+      "baked_rejects": 6,
+      "ordinary_accepts": 6,
+      "wrong_key_eval_accepts": 0,
+      "ssim_all_admitted": true,
+      "color_axis_rows": {
+        "color_plain_pillow_raw": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": 1.0
+        },
+        "color_plain_pillow_managed": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": 1.0
+        },
+        "color_icc_a98_pillow_raw": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": 1.0
+        },
+        "color_icc_a98_pillow_managed": {
+          "decision_min": false,
+          "decision_max": false,
+          "score": 0.28125
+        },
+        "color_gamma08_pillow_raw": {
+          "decision_min": true,
+          "decision_max": true,
+          "score": 1.0
+        },
+        "color_gamma08_pillow_managed": {
+          "decision_min": false,
+          "decision_max": false,
+          "score": 0.5
+        }
+      },
+      "same_byte_per_pair": true,
+      "fpr": {
+        "n": 300,
+        "false_accepts_min_rule": 0,
+        "upper95_fpr_min_rule": 0.00993608194445772,
+        "gate_1pct_min_rule": true,
+        "false_accepts_max_rule": 0
+      },
+      "icc_gamma_consumer_decision_differentials": [
+        {
+          "axis": "icc_a98",
+          "raw": true,
+          "managed": false,
+          "score_raw": 1.0,
+          "score_managed": 0.21875
+        },
+        {
+          "axis": "gamma08",
+          "raw": true,
+          "managed": false,
+          "score_raw": 1.0,
+          "score_managed": 0.84375
+        }
+      ]
+    }
+  }
+}

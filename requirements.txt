@@ -1,0 +1,22 @@
+# Verification only (python3 experiments/verify_findings.py): Python 3 standard library,
+# no packages required.
+#
+# Full re-run environment (as executed; see protocol/environment_manifest.json for the
+# authoritative record including hashes):
+#
+#   # torch cu124 wheel needs: --extra-index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
+diffusers==0.31.0
+transformers>=4.36
+accelerate>=0.30
+pillow==12.3.0
+opencv-python==5.0.0.93
+numpy==2.5.2
+scipy==1.18.1
+matplotlib==3.11.2
+imageio==2.37.4
+onnxruntime==1.30.0
+invisible-watermark==0.2.0
+scikit-image>=0.24
+# Browser probes also need Node with playwright (chromium + firefox engines).

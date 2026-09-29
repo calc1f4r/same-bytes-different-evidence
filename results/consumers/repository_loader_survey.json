@@ -1,0 +1,298 @@
+{
+ "experiment": "repository_loader_survey",
+ "date": "2026-09-28",
+ "purpose": "Establish whether real, public watermark-research evaluation pipelines load encoded images through EXIF-ignoring decode paths, by code inspection of official repositories at recorded commits.",
+ "method": "For each repository: (1) located the image-loading code used by detection/evaluation entry points via the GitHub git-trees API; (2) fetched raw file content from raw.githubusercontent.com and verified every quoted line against a shallow git clone whose HEAD SHA matches the GitHub commits API; (3) recorded whether the loader honours EXIF orientation (e.g. PIL ImageOps.exif_transpose) or ignores it; (4) grepped every .py/.ipynb/.md file in each clone for 'exif' to test for any orientation handling anywhere in the repository. This is code inspection, not execution: no pipeline was run, and no detection accuracy was measured.",
+ "background_facts": {
+  "PIL.Image.open": "Returns pixel data in stored raster order; EXIF orientation is not applied unless ImageOps.exif_transpose (or equivalent) is called explicitly.",
+  "cv2.imread": "OpenCV's default cv2.imread applies the EXIF orientation tag (the study's loader experiment measured 24/24); the tag is ignored only under the explicit IMREAD_IGNORE_ORIENTATION flag.",
+  "torchvision.datasets.ImageFolder": "Default loader is pil_loader: Image.open(...).convert('RGB'); no EXIF transpose.",
+  "PIL save": "PIL's Image.save writes no EXIF orientation tag unless an exif argument is supplied, so JPEGs produced inside these pipelines by PIL do not carry orientation tags."
+ },
+ "repos": [
+  {
+   "name": "tree-ring-watermark",
+   "paper": "Tree-Ring Watermarks: Fingerprints for Diffusion Images that are Invisible and Robust (NeurIPS 2023; arXiv 2305.20030)",
+   "url": "https://github.com/YuxinWenRick/tree-ring-watermark",
+   "branch": "main",
+   "commit": "3015283d9cf82e90b628f02ad2121bd37408ca9a",
+   "verified": true,
+   "evidence": [
+    {
+     "file": "optim_utils.py",
+     "lines": "53-57",
+     "function": "image_distortion (JPEG perturbation applied before detection in run_tree_ring_watermark*.py)",
+     "quote": "if args.jpeg_ratio is not None:\n    img1.save(f\"tmp_{args.jpeg_ratio}_{args.run_name}.jpg\", quality=args.jpeg_ratio)\n    img1 = Image.open(f\"tmp_{args.jpeg_ratio}_{args.run_name}.jpg\")\n    img2.save(f\"tmp_{args.jpeg_ratio}_{args.run_name}.jpg\", quality=args.jpeg_ratio)\n    img2 = Image.open(f\"tmp_{args.jpeg_ratio}_{args.run_name}.jpg\")"
+    },
+    {
+     "file": "guided_diffusion/image_datasets.py",
+     "lines": "105-108",
+     "function": "ImageFolder.__getitem__ via load_data (external image data for the guided-diffusion pipeline)",
+     "quote": "with bf.BlobFile(path, \"rb\") as f:\n    pil_image = Image.open(f)\n    pil_image.load()\npil_image = pil_image.convert(\"RGB\")"
+    }
+   ],
+   "exif_behaviour": "ignores",
+   "exposure": "The dataset loader reads arbitrary files from a data directory (ImageNet/LSUN-style layouts) with Image.open and no exif_transpose, so orientation-tagged JPEGs would be decoded with the EXIF orientation applied. The JPEG perturbation path re-opens files written by PIL itself, which carry no orientation tag.",
+   "repo_wide_exif_grep": "0 occurrences of 'exif' (case-insensitive) in all .py/.ipynb/.md files",
+   "loader_census": {
+    "Image.open": 4,
+    "cv2.imread": 0,
+    "cv2.VideoCapture": 0,
+    "ImageFolder": 0,
+    "exif_transpose": 0
+   }
+  },
+  {
+   "name": "WAVES",
+   "paper": "WAVES: Benchmarking the Robustness of Image Watermarks (arXiv 2401.08573)",
+   "url": "https://github.com/umd-huang-lab/WAVES",
+   "branch": "main",
+   "commit": "1477635d306d6f8c77a588e6441bd4ba301a1f7a",
+   "verified": true,
+   "evidence": [
+    {
+     "file": "distortions/distortions.py",
+     "lines": "164-165",
+     "function": "JPEG distortion applied in the benchmark's perturbation chain",
+     "quote": "image.save(buffered, format=\"JPEG\", quality=quality)\ndistorted_image = Image.open(buffered)"
+    },
+    {
+     "file": "scripts/decode.py",
+     "lines": "116 and 134-135",
+     "function": "decode/load_images for stable_sig and stegastamp modes (detector input construction)",
+     "quote": "Image.open(os.path.join(path, f\"{idx}.png\")),\n...\nImageOps.fit(\n    Image.open(os.path.join(path, f\"{idx}.png\")), (400, 400)\n)"
+    },
+    {
+     "file": "utils/data_utils.py",
+     "lines": "70-73",
+     "function": "load_imagenet_subset (source datasets: Tiny-ImageNet, Imagenette)",
+     "quote": "dataset = datasets.ImageFolder(\n    f\"{data_dir}/train\",\n    lambda x: to_tensor([x], norm_type=norm_type) if convert_to_tensor else x,\n)"
+    },
+    {
+     "file": "dev/io.py",
+     "lines": "83-88",
+     "function": "decode_image_from_string (benchmark app I/O path)",
+     "quote": "def decode_image_from_string(encoded_string):\n    # Decode the base64 string to bytes\n    img_data = gzip.decompress(base64.b64decode(encoded_string))\n    # Read the image from bytes\n    image = Image.open(BytesIO(img_data))"
+    }
+   ],
+   "exif_behaviour": "ignores (ImageOps is imported but only ImageOps.fit, a resize, is used; no exif_transpose anywhere)",
+   "exposure": "ImageFolder reads arbitrary JPEGs from Tiny-ImageNet/Imagenette directories; the JPEG distortion and decode paths decode with Image.open and no orientation handling.",
+   "repo_wide_exif_grep": "0 occurrences of 'exif' (case-insensitive) in all .py/.ipynb/.md files",
+   "loader_census": {
+    "Image.open": 28,
+    "cv2.imread": 2,
+    "cv2.VideoCapture": 0,
+    "ImageFolder": 14,
+    "exif_transpose": 0
+   }
+  },
+  {
+   "name": "stable_signature (formerly StableSignature)",
+   "paper": "The Stable Signature: Rooting Watermarks in Latent Diffusion Models (arXiv 2303.15435)",
+   "url": "https://github.com/facebookresearch/stable_signature",
+   "branch": "main",
+   "commit": "c91217c06e953a4eaf270ef9de4a3939bcea3366",
+   "note": "The repository previously at facebookresearch/StableSignature returns 404; the GitHub API org listing shows the live repository is facebookresearch/stable_signature (underscore), described as the official implementation.",
+   "verified": true,
+   "evidence": [
+    {
+     "file": "run_evals.py",
+     "lines": "50-52",
+     "function": "get_img_metric (evaluation over a directory of encoded images)",
+     "quote": "pil_img_ori = Image.open(os.path.join(img_dir_nw, filename))\npil_img = Image.open(os.path.join(img_dir, filename))"
+    },
+    {
+     "file": "decoding.ipynb",
+     "lines": "cell source (documented detection snippet)",
+     "function": "message extraction from a generated image",
+     "quote": "img = Image.open(\"path/to/generated/img.png\")\nimg = transform_imnet(img).unsqueeze(0).to(\"cuda\")\nmsg = msg_extractor(img) # b c h w -> b k"
+    }
+   ],
+   "exif_behaviour": "ignores",
+   "exposure": "run_evals.py iterates os.listdir over an image directory and opens each file with PIL; decoding.ipynb is the documented detection path for arbitrary generated images.",
+   "repo_wide_exif_grep": "0 occurrences of 'exif' (case-insensitive) in all .py/.ipynb/.md files",
+   "loader_census": {
+    "Image.open": 20,
+    "cv2.imread": 4,
+    "cv2.VideoCapture": 0,
+    "ImageFolder": 4,
+    "exif_transpose": 0
+   }
+  },
+  {
+   "name": "StegaStamp",
+   "paper": "StegaStamp: Invisible Hyperlinks in Physical Photographs (CVPR 2020)",
+   "url": "https://github.com/tancik/StegaStamp",
+   "branch": "master",
+   "commit": "c984446048b826587ca1875027b0a1dc1885fb30",
+   "verified": true,
+   "evidence": [
+    {
+     "file": "decode_image.py",
+     "lines": "42-44",
+     "function": "main (documented still-image decoding entry point; files from --image or glob of --images_dir)",
+     "quote": "for filename in files_list:\n    image = Image.open(filename).convert(\"RGB\")\n    image = np.array(ImageOps.fit(image,(400, 400)),dtype=np.float32)"
+    }
+   ],
+   "exif_behaviour": "ignores (ImageOps.fit resizes; it does not transpose EXIF orientation)",
+   "exposure": "decode_image.py accepts arbitrary user-supplied image files or directories; detector.py processes video frames via cv2.VideoCapture, where EXIF orientation does not apply.",
+   "repo_wide_exif_grep": "0 occurrences of 'exif' (case-insensitive) in all .py/.ipynb/.md files",
+   "loader_census": {
+    "Image.open": 3,
+    "cv2.imread": 0,
+    "cv2.VideoCapture": 1,
+    "ImageFolder": 0,
+    "exif_transpose": 0
+   }
+  },
+  {
+   "name": "invisible-watermark (imwatermark)",
+   "paper": "Library used in production by Stable Diffusion and other generators (ShieldMnt)",
+   "url": "https://github.com/ShieldMnt/invisible-watermark",
+   "branch": "main",
+   "commit": "68d0376d94a4701ed240af0841ec12e00676e325",
+   "verified": true,
+   "evidence": [
+    {
+     "file": "README.md",
+     "lines": "68-73",
+     "function": "documented decode example",
+     "quote": "import cv2\nfrom imwatermark import WatermarkDecoder\n\nbgr = cv2.imread('test_wm.png')\n\ndecoder = WatermarkDecoder('bytes', 32)\nwatermark = decoder.decode(bgr, 'dwtDct')"
+    },
+    {
+     "file": "export_onnx.py",
+     "lines": "9",
+     "function": "in-repo usage",
+     "quote": "bgr = cv2.imread('test_vectors/original.jpg')"
+    }
+   ],
+   "exif_behaviour": "honours (CORRECTED 2026-09-28: cv2.imread's default applies the EXIF orientation tag, as the study's own loader experiment measured at 24/24 in loader_survey_extended.json; the original survey misclassified this as: 'ignores (cv2.imread's default applies the EXIF orientation tag (see the 2026-09-28 correction); the library API consumes raw BGR numpy arrays and performs no orientation handling)')",
+   "exposure": "The documented decode path reads arbitrary user files with cv2.imread, so an orientation-tagged JPEG would be decoded with the EXIF orientation applied.",
+   "repo_wide_exif_grep": "0 occurrences of 'exif' (case-insensitive) in all .py/.ipynb/.md files",
+   "loader_census": {
+    "Image.open": 0,
+    "cv2.imread": 1,
+    "cv2.VideoCapture": 0,
+    "ImageFolder": 0,
+    "exif_transpose": 0
+   }
+  },
+  {
+   "name": "RivaGAN",
+   "paper": "RivaGAN: Robust Invisible Video Watermarking with Attention (arXiv 1909.01285)",
+   "url": "https://github.com/DAI-Lab/RivaGAN",
+   "branch": "master",
+   "commit": "efffa72a4ca46d4d5051f6970c96424c2cdab441",
+   "verified": true,
+   "evidence": [
+    {
+     "file": "rivagan/dataloader.py",
+     "lines": "44-45",
+     "function": "AOMDive9VideoDataset.__getitem__ (training/validation frame loading)",
+     "quote": "cap = cv2.VideoCapture(path)\ncap.set(cv2.CAP_PROP_POS_FRAMES, start_idx - 1)"
+    },
+    {
+     "file": "rivagan/rivagan.py",
+     "lines": "252",
+     "function": "RivaGAN.encode (library encode entry point over a video file)",
+     "quote": "video_in = cv2.VideoCapture(video_in)"
+    }
+   ],
+   "exif_behaviour": "not applicable (video pipeline): all I/O is cv2.VideoCapture over video containers; EXIF orientation is a still-image JPEG construct and video frames carry no such tag",
+   "exposure": "Video domain only; the EXIF orientation question does not arise for this repository's decode paths.",
+   "repo_wide_exif_grep": "0 occurrences of 'exif' (case-insensitive) in all .py/.ipynb/.md files",
+   "loader_census": {
+    "Image.open": 0,
+    "cv2.imread": 0,
+    "cv2.VideoCapture": 5,
+    "ImageFolder": 0,
+    "exif_transpose": 0
+   }
+  },
+  {
+   "name": "wibe (WIBE benchmark suite)",
+   "paper": "WIBE: An Extensible Open Source Framework for Evaluating Imperceptibility and Robustness of Watermarks (ASE 2025 Tool Demo)",
+   "url": "https://github.com/ispras/wibe",
+   "branch": "main",
+   "commit": "acf94ed81db4243d22fb7a7e075aff1671bc58e0",
+   "verified": true,
+   "evidence": [
+    {
+     "file": "src/wibench/datasets/mscoco/mscoco.py",
+     "lines": "77",
+     "function": "MSCOCODataset.generator (benchmark source images via HuggingFace datasets)",
+     "quote": "yield ImageObject(str(start_idx), to_tensor(data[\"image\"].convert(\"RGB\")))"
+    },
+    {
+     "file": "src/wibench/attacks/distortions.py",
+     "lines": "43-45",
+     "function": "JPEG compression attack",
+     "quote": "img_pil = torchvision.transforms.functional.to_pil_image(img)\nbuffer = io.BytesIO()\nimg_pil.save(buffer, format=\"JPEG\", quality=self.quality)\nimg_pil_compressed = Image.open(buffer)"
+    }
+   ],
+   "exif_behaviour": "ignores",
+   "exposure": "Source images come from HuggingFace-hosted MS-COCO / DiffusionDB and are converted with .convert('RGB') and no orientation transpose; the JPEG attack re-decodes with Image.open.",
+   "repo_wide_exif_grep": "Only EXIF references in the repository are in the vendored UniEdit-FLUX gradio demo (src/wibench/attacks/UniEdit_FLUX/UniEdit-Flow_FLUX/src/gradio_demo.py lines 181-183), which writes EXIF tags when saving generated images; no code reads or transposes orientation.",
+   "loader_census": {
+    "Image.open": 15,
+    "cv2.imread": 2,
+    "cv2.VideoCapture": 0,
+    "ImageFolder": 15,
+    "exif_transpose": 0
+   }
+  },
+  {
+   "name": "DiffMark",
+   "paper": "DiffMark: Diffusion-based Robust Watermark Against Deepfakes (Information Fusion 2025)",
+   "url": "https://github.com/vpsg-research/DiffMark",
+   "branch": "main",
+   "commit": "253a113528fed8e7bc8cb927584d2660adbc803a",
+   "verified": true,
+   "evidence": [
+    {
+     "file": "guided_diffusion/image_datasets.py",
+     "lines": "118-124",
+     "function": "ImageFolder.__getitem__ via load_data",
+     "quote": "path = self.local_images[idx]\ntry:\n    with bf.BlobFile(path, \"rb\") as f:\n        pil_image = Image.open(f)\n        pil_image.load()\nexcept Exception as e:\n    logger.log(f\"Error loading image {path}: {e}\")\npil_image = pil_image.convert(\"RGB\")"
+    },
+    {
+     "file": "scripts/image_test.py",
+     "lines": "9",
+     "function": "evaluation script wiring (confirms the test entry point consumes the loader above)",
+     "quote": "from guided_diffusion.image_datasets import load_data"
+    }
+   ],
+   "exif_behaviour": "ignores",
+   "exposure": "The evaluation script loads arbitrary files from a data directory through the guided_diffusion Image.open loader with no orientation handling.",
+   "repo_wide_exif_grep": "0 occurrences of 'exif' (case-insensitive) in all .py/.ipynb/.md files",
+   "loader_census": {
+    "Image.open": 4,
+    "cv2.imread": 3,
+    "cv2.VideoCapture": 0,
+    "ImageFolder": 0,
+    "exif_transpose": 0
+   }
+  }
+ ],
+ "not_verified": [
+  {
+   "name": "IRIS (arXiv 2608.03539)",
+   "attempt": "Fetched https://arxiv.org/abs/2608.03539 (2026-09-28). Title: 'IRIS: Visual-Semantic Binding for Forgery-Resistant Watermarking of Diffusion Images'. The paper has been withdrawn by the author and no code or GitHub URL appears in the abstract or comments; no repository was found via GitHub search.",
+   "status": "not verified"
+  }
+ ],
+ "summary": {
+  "repos_located": 8,
+  "repos_inspected": 8,
+  "repos_with_still_image_eval_loaders": 7,
+  "repos_loading_via_exif_ignoring_paths": 6,
+  "repos_honouring_exif": 1,
+  "repos_where_exif_not_applicable": 1,
+  "not_verified": 1,
+  "key_finding": "Six of the seven inspected repositories that read still images load them through EXIF-ignoring paths (PIL Image.open without exif_transpose, or torchvision's ImageFolder pil_loader); no repository calls exif_transpose or performs other read-side orientation handling. The seventh, invisible-watermark's documented decode example, uses cv2.imread, whose default honours the EXIF tag. (Corrected 2026-09-28 from an initial 7-of-7 count that misclassified cv2.imread; see notes.)",
+  "caveat": "This is code inspection of eight repositories at the recorded commits, not execution of the pipelines. Loader-census counts include vendored third-party code (e.g. LDM, LPIPS, BSRGAN utilities), and several JPEG re-decode paths within the pipelines consume files written by PIL itself, which carry no orientation tag; the claim is about the decode paths, not about measured detection outcomes."
+ },
+ "notes": [
+  "2026-09-28 correction: invisible-watermark's documented decode uses cv2.imread, whose default HONOURS EXIF orientation (paper Section 6.2 measured 24/24). The still-image EXIF-ignoring count is therefore 6 of 7, not 7 of 7. Quote evidence unchanged; classification field corrected above."
+ ]
+}

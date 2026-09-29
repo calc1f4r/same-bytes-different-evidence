@@ -1,0 +1,7 @@
+{
+ "torchvision_decode_image_equals_display": false,
+ "torchvision_pil_loader": "Image.open(...).convert(mode) - ignores EXIF orientation (code-traced)",
+ "cv2_imread_equals_display": true,
+ "PIL_raw_equals_display": false,
+ "matplotlib_equals_display": false
+}

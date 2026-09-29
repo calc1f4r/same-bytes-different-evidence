@@ -1,0 +1,39 @@
+riva_gan 206: score 0.5625 vs 0.5625 OK (2s)
+riva_gan 207: score 0.5 vs 0.5 OK (2s)
+riva_gan 208: score 0.40625 vs 0.40625 OK (2s)
+riva_gan 209: score 0.4375 vs 0.4375 OK (3s)
+riva_gan 210: score 0.59375 vs 0.59375 OK (3s)
+riva_gan 211: score 0.4375 vs 0.4375 OK (3s)
+
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]
+Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00,  4.29it/s]
+Loading pipeline components...:  83%|████████▎ | 5/6 [00:01<00:00,  2.71it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.09it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.37it/s]
+<study-tree>/src/treering/optim_utils.py:108: UserWarning: ComplexHalf support is experimental and many operators don't support it yet. (Triggered internally at /pytorch/aten/src/ATen/EmptyTensor.cpp:50.)
+  gt_patch = torch.fft.fftshift(torch.fft.fft2(gt_init), dim=(-1, -2))
+tree_ring_rand 218: score -35.375 vs -35.375 OK (15s)
+tree_ring_rand 219: score -36.75 vs -36.75 OK (16s)
+tree_ring_rand 220: score -36.09375 vs -36.09375 OK (17s)
+tree_ring_rand 221: score -37.90625 vs -37.90625 OK (18s)
+tree_ring_rand 222: score -37.1875 vs -37.1875 OK (19s)
+tree_ring_rand 223: score -31.359375 vs -31.359375 OK (20s)
+
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]
+Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00, 11.48it/s]
+Loading pipeline components...:  83%|████████▎ | 5/6 [00:00<00:00,  9.33it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  1.89it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  2.54it/s]
+tree_ring_ring 230: score -30.390625 vs -30.390625 OK (25s)
+tree_ring_ring 231: score -28.5 vs -28.5 OK (26s)
+tree_ring_ring 232: score -40.90625 vs -40.90625 OK (27s)
+tree_ring_ring 233: score -41.1875 vs -41.1875 OK (28s)
+tree_ring_ring 234: score -32.5 vs -32.5 OK (29s)
+tree_ring_ring 235: score -30.953125 vs -30.953125 OK (30s)
+dwt_dct_svd 242: score 0.5625 vs 0.5625 OK (30s)
+dwt_dct_svd 243: score 0.4375 vs 0.4375 OK (30s)
+dwt_dct_svd 244: score 0.625 vs 0.625 OK (30s)
+dwt_dct_svd 245: score 0.46875 vs 0.46875 OK (30s)
+dwt_dct_svd 246: score 0.65625 vs 0.65625 OK (30s)
+dwt_dct_svd 247: score 0.4375 vs 0.4375 OK (30s)
+RESULT 24/24

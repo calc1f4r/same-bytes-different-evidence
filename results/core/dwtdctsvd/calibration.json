@@ -1,0 +1,32 @@
+{
+  "family": "dwt_dct_svd",
+  "cal_marked": [
+    1.0,
+    1.0,
+    1.0,
+    0.96875,
+    0.96875,
+    1.0
+  ],
+  "cal_negative": [
+    0.46875,
+    0.46875,
+    0.375,
+    0.71875,
+    0.4375,
+    0.25,
+    0.46875,
+    0.40625,
+    0.5,
+    0.4375,
+    0.5625,
+    0.5625
+  ],
+  "threshold_min_rule": 0.84375,
+  "threshold_max_rule": 0.984375,
+  "eligible_midpoints": [
+    0.84375,
+    0.984375
+  ],
+  "protocol_sha256": "be53cc3a871319f9b1fc3fc438ae70d31a147b38bf9abc5890a45999eb959c2b"
+}
