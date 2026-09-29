@@ -1,4 +1,4 @@
-# Same Bytes, Different Evidence — experiment artifacts
+# Same Bytes, Different Evidence: experiment artifacts
 
 Does a watermark verifier return the same verdict on the same encoded image file,
 regardless of which standards-valid decoder produces its input raster? These experiments
