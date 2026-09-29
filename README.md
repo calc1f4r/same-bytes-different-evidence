@@ -1,4 +1,4 @@
-# Decoder-Policy Watermark Experiments
+# Same Bytes, Different Evidence — experiment artifacts
 
 Does a watermark verifier return the same verdict on the same encoded image file,
 regardless of which standards-valid decoder produces its input raster? These experiments
@@ -152,8 +152,8 @@ are released under CC-BY-4.0 for verification and reuse with attribution.
 GitHub renders a "Cite this repository" button from CITATION.cff, equivalent to:
 
 ```bibtex
-@misc{decoder-policy-watermark-experiments,
-  title  = {Decoder-Policy Watermark Experiments},
+@misc{same-bytes-different-evidence,
+  title  = {Same Bytes, Different Evidence (experiment artifacts)},
   author = {Srivastava, Yash and Singh, Amardeep and Singh, Monika},
   year   = {2026},
   note   = {Artifact release: experiment code, frozen protocol, and raw results}

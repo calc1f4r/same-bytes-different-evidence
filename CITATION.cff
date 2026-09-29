@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use these experiments or artifacts, please cite them as below."
-title: "Decoder-Policy Watermark Experiments: artifact release"
+title: "Same Bytes, Different Evidence: experiment artifacts"
 authors:
   - family-names: Srivastava
     given-names: Yash
@@ -11,7 +11,7 @@ authors:
 year: 2026
 version: 1.0.0
 date-released: "2026-09-29"
-repository-code: "https://github.com/calc1f4r/decoder-policy-watermark-experiments"
+repository-code: "https://github.com/calc1f4r/same-bytes-different-evidence"
 keywords:
   - watermarking
   - EXIF orientation
